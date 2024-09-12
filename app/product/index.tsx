@@ -10,7 +10,7 @@ const Product = () => {
     
   return (
     <View className='w-full flex-1'>
-      <Header Left={
+      {/* <Header Left={
         <Link href={'/'} asChild>
           <TouchableOpacity>
             <Ionicons name="arrow-back" size={27} color="black" />
@@ -18,7 +18,7 @@ const Product = () => {
         </Link>
         }
         centerText='Product'
-      />
+      /> */}
       <Text>Product</Text>
     </View>
   )

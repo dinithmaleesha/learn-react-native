@@ -5,7 +5,7 @@ import { View, Text, TouchableOpacity } from 'react-native'
 const Products = () => {
   return (
     <View className='w-full flex-1'>
-      <Header Left={
+      {/* <Header Left={
         <Link href={'/'} asChild>
           <TouchableOpacity>
             <Ionicons name="arrow-back" size={27} color="black" />
@@ -13,7 +13,7 @@ const Products = () => {
         </Link>
         }
         centerText='Products'
-      />
+      /> */}
       <Text>Products</Text>
     </View>
   )

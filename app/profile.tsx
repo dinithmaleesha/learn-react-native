@@ -6,7 +6,7 @@ import Ionicons from '@expo/vector-icons/Ionicons'
 const Profile = () => {
   return (
     <View className='w-full flex-1'>
-      <Header Left={
+      {/* <Header Left={
         <Link href={'/'} asChild>
           <TouchableOpacity>
             <Ionicons name="arrow-back" size={27} color="black" />
@@ -14,7 +14,7 @@ const Profile = () => {
         </Link>
         }
         centerText='Profile'
-      />
+      /> */}
       <Text>Profile</Text>
     </View>
   )

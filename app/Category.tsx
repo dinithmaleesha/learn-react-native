@@ -6,7 +6,7 @@ import { View, Text, TouchableOpacity } from 'react-native'
 const Category = () => {
   return (
     <View className='w-full flex-1'>
-      <Header Left={
+      {/* <Header Left={
         <Link href={'/'} asChild>
           <TouchableOpacity>
             <Ionicons name="arrow-back" size={27} color="black" />
@@ -14,7 +14,7 @@ const Category = () => {
         </Link>
         }
         centerText='Category'
-      />
+      /> */}
       <Text>Category</Text>
     </View>
   )

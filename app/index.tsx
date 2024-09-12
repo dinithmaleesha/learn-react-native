@@ -8,12 +8,12 @@ const Index = () => {
   const {drawer} = useDrawer()
   return (
       <View>
-          <Header Left={
+          {/* <Header Left={
             <TouchableOpacity onPress={() => drawer?.current?.openDrawer()}>
               <Ionicons name="menu" size={27} color="black" />
             </TouchableOpacity>}
             centerText='Home'
-          />
+          /> */}
           <Text className='text-5xl font-bold text-green-700'>Hello World</Text>
           <Link href={'/Category'}>Category</Link>
           <Link href={'/Products'}>Products</Link>
@@ -29,7 +29,7 @@ const Index = () => {
               productId:'Dinith',
               name:'Maleesha'
             },
-          }}>123</Link>
+          }}>Single product</Link>
         </View>
   );
 }
