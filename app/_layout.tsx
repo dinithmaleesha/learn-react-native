@@ -1,41 +1,53 @@
-import { Link, router, Slot, Stack } from 'expo-router'
-import { View, Text, TouchableOpacity } from 'react-native'
-import Footer from '@/layout/footer';
-import DrawerProvider from '@/context/drawer';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import useDrawer from '@/context/context-hooks/useDrawer';
+import { GestureHandlerRootView, TouchableOpacity } from 'react-native-gesture-handler';
+import { Drawer } from 'expo-router/drawer';
+import { Ionicons } from '@expo/vector-icons';
+import { Link, useNavigation } from 'expo-router';
+import { DrawerContentComponentProps, DrawerNavigationProp } from '@react-navigation/drawer';
+import { View } from 'react-native';
+import Nav from '@/layout/navbar';
 
 const RootLayout = () => {
   return (
-    <DrawerProvider>
-        <View className='relative w-full flex-1'>
-          <Stack screenOptions={{
-            headerTitleAlign: 'center',
-            headerStyle: {
-              backgroundColor: "rgb(209 213 219)"
-            }
-          }}>
-            <Stack.Screen name='index' options={{
-              title:"Home",
-              headerLeft:() => <IndexHeaderLeftIcon/>,
-            }}/>
-            <Stack.Screen name='product/[productId]' options={{title: 'Single Product'}}/>
-            <Stack.Screen name='product/index' options={{title: 'Productsss'}}/>
-            <Stack.Screen name='Category' options={{title: 'Category'}}/>
-            <Stack.Screen name='profile' options={{title: 'Profile'}}/>
-          </Stack>
-            {/* <Slot/> */}
-            {/* <Footer/> */}
-        </View>
-    </DrawerProvider>
-  )
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Drawer
+        drawerContent={()=><Nav/>}
+        screenOptions={{
+          headerShown: false,
+          drawerStyle:{
+            backgroundColor: 'green',
+            width: "70%"
+          }}}>
+        {/* <Drawer.Screen name='index' options={{
+          title:'Home',
+          headerTitleAlign: 'center',
+          headerShown: true,
+          headerLeft: () => <DrawerHeaderIcon/>,
+        }}/>
+        <Drawer.Screen name='stack'/> */}
+      </Drawer>
+    </GestureHandlerRootView>);
 }
 
 export default RootLayout
 
-const IndexHeaderLeftIcon = () => {
-  const {drawer} = useDrawer();
-  return <TouchableOpacity onPress={() => drawer?.current?.openDrawer()}>
-  <Ionicons name="menu" size={27} color="black" />
-</TouchableOpacity>;
+const DrawerHeaderIcon = () => {
+  const navigation = useNavigation<DrawerNavigationProp<{}>>();
+  
+  return (
+    <TouchableOpacity
+      onPress={()=>navigation.openDrawer()}
+      className='ml-4'>
+      <Ionicons name="menu" size={27} color="black" />
+    </TouchableOpacity>
+  );
+}
+
+const DrawerContent = (p:DrawerContentComponentProps) => {
+  // console.log(p);
+  
+  return (
+    <View className={'w-full flex-1'}>
+      <Link className='mt-12 text-gray-50' href={'/Category'}>Category</Link>
+    </View>
+  );
 }

@@ -4,7 +4,7 @@ import { Href, router } from "expo-router";
 import { useContext } from "react";
 import { Image, View, Text, TouchableOpacity, DrawerLayoutAndroid } from "react-native";
 
-const Nav = ({drawer}:{drawer: React.RefObject<DrawerLayoutAndroid>}) => 
+const Nav = ({drawer}:{drawer?: React.RefObject<DrawerLayoutAndroid>}) => 
 <View className="w-full flex-1 bg-gray-900">
     <View className="w-full items-center justify-center h-[220px]">
         <Image source={{uri:'https://www.euroschoolindia.com/wp-content/uploads/2023/06/facts-about-space.jpg'}}
@@ -24,7 +24,7 @@ interface IMenuItem {
     name:"home-outline"|"logo-dropbox"|"grid-outline"|"person-outline";
     title:string;
     navigate:Href;
-    drawer: React.RefObject<DrawerLayoutAndroid>;
+    drawer?: React.RefObject<DrawerLayoutAndroid>;
 }
 const MenuItem = ({name, title, navigate, drawer}:IMenuItem) => {
     // const  { drawer } = useDrawer();
@@ -33,7 +33,7 @@ const MenuItem = ({name, title, navigate, drawer}:IMenuItem) => {
 
     return <TouchableOpacity
     onPress={() => {
-        drawer?.current?.closeDrawer()
+        // drawer?.current?.closeDrawer()
         router.navigate(navigate)}}
     className="w-full py-2 pr-2  border-b
      border-gray-50/25 flex-row items-center
